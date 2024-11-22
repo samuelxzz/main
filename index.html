@@ -1,0 +1,276 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar Simples</title>
+    <style>
+        /* Resetando alguns estilos padrão */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Estilo da navbar */
+        .navbar {
+            background-color: rgb(7, 179, 232);
+            padding: 10px 0;
+        }
+
+        /* Lista de links da navbar */
+        .navbar-list {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Estilos para cada link */
+        .navbar-list li {
+            margin: 0 15px;
+        }
+
+        .navbar-list a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        /* Efeito de hover nos links */
+        .navbar-list a:hover {
+            color: rgba(55, 209, 32, 0.87);
+        }
+        .slider{
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+        .slides{
+            display: flex;
+            transition: transform 1s ease;
+        }
+        .slide{
+            min-width: 100%;
+            height: 100%;
+           
+        }
+        .slide img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background-size: cover;
+            object-fit: cover;
+          
+
+        }
+        @keyframes slideAnimation{
+                 0%{transform: translateX(0);}
+                 20%{transform: translateX(0);}
+                 25%{transform: translateX(-100%);}
+                 45%{transform: translateX(-100%);}
+                 50%{transform: translateX(-200%);}
+                 70%{transform: translateX(-200%);}
+                 75%{transform: translateX(-300%);}
+                 100%{transform: translateX(-300%);}
+        }
+        .slides{
+            animation: slideAnimation 12s infinite;
+        }
+        footer{
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+
+        }
+        .card {
+        position: relative;
+        width: 190px;
+        height: 254px;
+        background-color: #000;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        padding: 12px;
+        gap: 12px;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+      
+      .card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        left: -5px;
+        margin: auto;
+        width: 200px;
+        height: 264px;
+        border-radius: 10px;
+        background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100% );
+        z-index: -10;
+        pointer-events: none;
+        transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+      
+      .card::after {
+        content: "";
+        z-index: -1;
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100% );
+        transform: translate3d(0, 0, 0) scale(0.95);
+        filter: blur(20px);
+      }
+      
+      .heading {
+        font-size: 20px;
+        text-transform: capitalize;
+        font-weight: 700;
+      }
+      
+      .card p:not(.heading) {
+        font-size: 14px;
+      }
+      
+      .card p:last-child {
+        color: #e81cff;
+        font-weight: 600;
+      }
+      
+      .card:hover::after {
+        filter: blur(30px);
+      }
+      
+      .card:hover::before {
+        transform: rotate(-90deg) scaleX(1.34) scaleY(0.77);
+      }
+      button {
+  position: relative;
+  padding: 10px 20px;
+  border-radius: 7px;
+  border: 1px solid rgb(255, 176, 28);
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 2px;
+  background: transparent;
+  color: #fff;
+  overflow: hidden;
+  box-shadow: 0 0 0 0 transparent;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+button:hover {
+  background: rgb(244, 204, 46);
+  box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+button:hover::before {
+  -webkit-animation: sh02 0.5s 0s linear;
+  -moz-animation: sh02 0.5s 0s linear;
+  animation: sh02 0.5s 0s linear;
+}
+
+button::before {
+  content: '';
+  display: block;
+  width: 0px;
+  height: 86%;
+  position: absolute;
+  top: 7%;
+  left: 0%;
+  opacity: 0;
+  background: #fff;
+  box-shadow: 0 0 50px 30px #fff;
+  -webkit-transform: skewX(-20deg);
+  -moz-transform: skewX(-20deg);
+  -ms-transform: skewX(-20deg);
+  -o-transform: skewX(-20deg);
+  transform: skewX(-20deg);
+}
+
+@keyframes sh02 {
+  from {
+    opacity: 0;
+    left: 0%;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    left: 100%;
+  }
+}
+
+button:active {
+  box-shadow: 0 0 0 0 transparent;
+  -webkit-transition: box-shadow 0.2s ease-in;
+  -moz-transition: box-shadow 0.2s ease-in;
+  transition: box-shadow 0.2s ease-in;
+}
+  body{
+    background-color:rgba(249, 172, 6, 0.903);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+  } 
+#oii{
+    width: 450px;
+    height: 450px;
+    text-align: center;
+}
+#oiii{
+    width: 450px; 
+}
+
+    </style>
+    
+      
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="navbar-list">
+            <li><a href="index.html"><button>Home</button></a></li>
+            <li><a href="sobre.html"><button>Sobre</button></a></li>
+            <li><a href="servicos.html"><button>Serviços</button></a></li>
+            <li><a href="contato.html"><button>Contato</button></a></li>
+        </ul>
+    </nav>
+    <br>
+    <h1>  
+        <center><p> Bem-vindo ao nosso site!<p></center>
+    <p><center>
+    Estamos muito felizes em tê-lo conosco!
+    Aqui você encontra um conteúdo pensado especialmente para atender às suas necessidades, com informações relevantes, soluções inovadoras e uma experiência única.
+    Navegue à vontade e aproveite tudo o que preparamos com muito cuidado para você</p><p>
+    Se tiver alguma dúvida ou precisar de ajuda, nossa equipe está sempre à disposição para retornar sua visita ainda mais completa.
+  </center>
+    </p>
+   </h1>
+   <br>
+    
+   <center>
+    <button><a href="https://www.youtube.com/watch?v=RylLBe8yAwc">clique aqui</a><img src="plantas.png" alt="" id="oii"></button>
+    <button><a href="https://www.youtube.com/watch?v=brW67I8v4mc">clique aqui</a><img src="peso.png" alt="" id="oiii"></button>
+    <button><a href="https://www.youtube.com/watch?v=wJBof_K85YY">clique aqui</a><img src="colherori.png" alt=""></button>
+</center>
+
+    <footer>
+        <p>&copy; 2024 meu site personalizado | todos os direitos reservados</p>
+    </footer>
+    
+</body>
+</html>
